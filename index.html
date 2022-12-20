@@ -13,7 +13,7 @@
         hour = isNaN(hour) ? 0 : hour;
         count = isNaN(count) ? 0 : count;
         var estFee = count > 0 ? hour / count : NaN;
-            document.getElementById('rate').value = isNaN(estFee) ? 0 : estFee;
+            document.getElementById('rate').value = isNaN(estFee) ? 0 : Math.round(estFee);
         
         }
 
