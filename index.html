@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business License count Calculator</title>
     <script>
-        function calculateNetRate(){
+        function calculateEstFee(){
         
         var hour = document.getElementById('hours').value;
             var count = document.getElementById('counts').value;
         hour = isNaN(hour) ? 0 : hour;
         count = isNaN(count) ? 0 : count;
-        var netRate = count > 0 ? hour / count : NaN;
-            document.getElementById('rate').value = isNaN(netRate) ? 0 : netRate;
+        var estFee = count > 0 ? hour / count : NaN;
+            document.getElementById('rate').value = isNaN(estFee) ? 0 : estFee;
         
         }
 
         setInterval(function(){
         
-        calculateNetRate();
+        calculateEstFee();
         }, 100);
     </script>     
 </head>
