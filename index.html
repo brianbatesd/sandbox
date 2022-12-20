@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Business License Fee Calculator</title>
+    <script type="javascript">
+        function calculateNetRate(){
+        
+        var sale = document.getElementById('sales').value;
+            var fee = document.getElementById('fees').value;
+        sale = isNaN(sale) ? 0 : sale;
+        fee = isNaN(fee) ? 0 : fee;
+        var netRate = fee > 0 ? sale / fee : NaN;
+            document.getElementById('rate').value = isNaN(netRate) ? 0 : netRate;
+        
+        }
+
+        setInterval(function(){
+        
+        calculateNetRate();
+        }, 100);
+    </script>
 </head>
 <body>
-
+    <p>Total purchases: <input type="text" name="sales" id="sales" /></p>
+    <p>Total fees: <input type="text" name="fees" id="fees" /></p>
+    <p>Your net rate is: <input type="text" name="rate" id="rate" /></p>
 </body>
 </html>
