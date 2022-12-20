@@ -1,24 +1,58 @@
-<table border="0" cellspacing="1" cellpadding="1">
-    <tbody>
-        <tr>
-            <th>Reported Gross Annual Income in City</th>
-            <th>License Fee per License</th>
-            <th>Employee Fee per calculated employee number</th>
-        </tr>
-        <tr>
-            <td>$0 - $2,000</td>
-            <td>$0.00</td>
-            <td>$0.00</td>
-        </tr>
-        <tr>
-            <td>&gt; $2,000 - $50,000</td>
-            <td>$50.00</td>
-            <td>$0.00</td>
-        </tr>
-        <tr>
-            <td>&gt; $50,000</td>
-            <td>$300.00</td>
-            <td>$105.00</td>
-        </tr>
-    </tbody>
+<h2>Determining employee count for employee fee calculation</h2>
+
+<p>For a new business license, report estimated total hours to be worked in city in coming 12 months by all employees; and for renewing license holders, report total hours worked in city in previous 12 months or 4 quarters by all employees. (See definition of &ldquo;employees&rdquo; below.) Total hours are then divided by 1,664 hours, and result is rounded to nearest whole number to determine employee count for the purpose of employee fee calculation; see examples below. The minimum employee count is one.</p>
+
+<p><strong>Employee count calculation examples.</strong> Example 1: 600 hours divided by 1,664 hours equals 0.36, rounded to 1. Example 2: 6,000 hours divided by 1,664 hours equals 3.6, rounded to 4. Example 3: 75,000 hours divided by 1,664 hours equals 45.1, rounded to 45.</p>
+
+<p><strong>&ldquo;Employee&rdquo; definition:</strong> Pay-rolled employees, self-employed persons, sole proprietors, owners, managers, and partners that work in city limits.</p>
+
+<table border="0" cellpadding="1" cellspacing="1">
+	<tbody>
+		<tr>
+			<th>Reported Gross Annual Income in City</th>
+			<th>License Fee per License</th>
+			<th>Employee Fee per calculated employee number</th>
+		</tr>
+		<tr>
+			<td>$0 - $2,000</td>
+			<td>$0.00</td>
+			<td>$0.00</td>
+		</tr>
+		<tr>
+			<td>&gt; $2,000 - $50,000</td>
+			<td>$50.00</td>
+			<td>$0.00</td>
+		</tr>
+		<tr>
+			<td>&gt; $50,000</td>
+			<td>$300.00</td>
+			<td>$105.00</td>
+		</tr>
+	</tbody>
 </table>
+
+<h2 style="margin-top: 1em;">Fee Calculator</h2>
+
+    <script>
+        function calculateEstFee(){
+        
+        var hour = document.getElementById('hours').value;
+            var count = document.getElementById('counts').value;
+        hour = isNaN(hour) ? 0 : hour;
+        count = isNaN(count) ? 0 : count;
+        var estFee = count > 0 ? hour / count : NaN;
+            document.getElementById('rate').value = isNaN(estFee) ? 0 : Math.round(estFee);
+        
+        }
+
+        setInterval(function(){
+        
+        calculateEstFee();
+        }, 100);
+    </script>  
+
+<p style="margin-bottom: 1em;"><strong>Instructions:</strong> Enter total hours worked with no comma.</p>
+
+<p>Total hours worked in 12 months or 4 quarters (no comma):<br><input type="text" name="hours" id="hours" /></p>
+<p style="display: none;"><input type="text" name="counts" id="counts" value="1664" /></p>
+<p>Estimated employee fee (in dollars):<br><input type="text" name="rate" id="rate" /></p>
