@@ -1,18 +1,18 @@
-! <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business License Fee Calculator</title>
-    <script type="javascript">
+    <title>Business License count Calculator</title>
+    <script>
         function calculateNetRate(){
         
-        var sale = document.getElementById('sales').value;
-            var fee = document.getElementById('fees').value;
-        sale = isNaN(sale) ? 0 : sale;
-        fee = isNaN(fee) ? 0 : fee;
-        var netRate = fee > 0 ? sale / fee : NaN;
+        var hour = document.getElementById('hours').value;
+            var count = document.getElementById('counts').value;
+        hour = isNaN(hour) ? 0 : hour;
+        count = isNaN(count) ? 0 : count;
+        var netRate = count > 0 ? hour / count : NaN;
             document.getElementById('rate').value = isNaN(netRate) ? 0 : netRate;
         
         }
@@ -21,11 +21,11 @@
         
         calculateNetRate();
         }, 100);
-    </script>
+    </script>     
 </head>
-<body>
-    <p>Total purchases: <input type="text" name="sales" id="sales" /></p>
-    <p>Total fees: <input type="text" name="fees" id="fees" /></p>
-    <p>Your net rate is: <input type="text" name="rate" id="rate" /></p>
+<body>  
+    <p>Total hours worked in 12 months:<br><input type="text" name="hours" id="hours" /></p>
+    <p style="display: none;">Divided by 1664 hours:<br><input type="text" name="counts" id="counts" value="1664" /></p>
+    <p>Estimated employee fee:<br><input type="text" name="rate" id="rate" /></p>
 </body>
 </html>
