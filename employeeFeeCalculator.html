@@ -39,31 +39,34 @@
 
 <h2 style="margin-top: 1em;">Estimated Fee Calculator</h2>
 
-    <form id="feeForm">
-    <p><label for="hoursWorked">Enter total hours worked in 12 months or 4 quarters (no comma):</label></p>
-    <p style="margin-top: -1em;"><input type="text" id="hoursWorked" name="hoursWorked"></p>
-    <p><input type="button" value="Calculate Fee" onclick="calculateFee()"></p>
-    </form>
+<form id="feeForm">
+  <p><label for="hoursWorked">Enter total hours worked in 12 months or 4 quarters (no comma):</label></p>
+  <p style="margin-top: -1em;"><input type="text" id="hoursWorked" name="hoursWorked"></p>
+  <p><input type="button" value="Calculate Fee" onclick="calculateFee()"></p>
+</form>
   
-  <div id="feeResult"></div>
+<div id="feeResult"></div>
   
-  <script>
-    function calculateFee() {
-      // Get the number of hours worked from the form
-      var hoursWorked = document.getElementById("hoursWorked").value;
-  
-      // Convert the hours worked to a number
-      hoursWorked = parseInt(hoursWorked);
-  
-      // Calculate the fee
-      var fee = Math.round(hoursWorked / 1664) * 105;
-      if (fee < 105) {
-      fee = 105;
-    }
-  
-      // Display the fee
-      document.getElementById("feeResult").innerHTML = "<strong>Estimated Employee Fee:</strong> $" + fee;
-    }
-  </script>
+<script>
+  function calculateFee() {
+    // Get the number of hours worked from the form
+    var hoursWorked = document.getElementById("hoursWorked").value;
 
-  <p style="margin-top: 1em;"><em>This new fee structure will go into place on 4/1/2023. This tool is only for estimation purposes.</em></p>
+    // Remove punctuation from the input
+    hoursWorked = hoursWorked.replace(/[^\d]/g, '');
+
+    // Convert the hours worked to a number
+    hoursWorked = parseInt(hoursWorked);
+
+    // Calculate the fee
+    var fee = Math.round(hoursWorked / 1664) * 105;
+    if (fee < 105) {
+    fee = 105;
+    }
+
+    // Display the fee
+    document.getElementById("feeResult").innerHTML = "<strong>Estimated Employee Fee:</strong> $" + fee;
+  }
+</script>
+
+<p style="margin-top: 1em;"><em>This new fee structure will go into place on 4/1/2023. This tool is only for estimation purposes.</em></p>
