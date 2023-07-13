@@ -1,26 +1,203 @@
-<p>This meeting will be conducted using a hybrid structure and will be open to in-person attendance and virtual viewing. Participation options will also continue to be available to the public.</p>
+<style>
+    /* Write Admin Area CSS code here */
+    .wp-adminify.folded .adminify-top_bar nav.adminify-top-navbar .navbar-brand img[class*=logo] {
+        height: 50px !important;
+    }
 
-<h2>Meeting Access Information</h2>
+    .wp-adminify:not(.adminify-dark-mode) #adminmenu .wp_adminify_admin-menu-top .wp_adminify_user-details .wp_adminify_user-name a,
+    .wp-adminify:not(.adminify-dark-mode) #adminmenu .wp_adminify_admin-menu-top .wp_adminify_user-details .wp_adminify_user-url a {
+        color: var(--adminify-menu-text-color) !important;
+    }
 
-<p>Join on your computer, mobile app or room device</p>
+    .navbar-item img {
+        max-height: 7.75rem !important;
+    }
 
-<p><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTM5M2I3ZGUtMDk4Mi00YjgwLTk3NWMtMWU5M2Q5MzJhYWVj%40thread.v2/0?context=%7b%22Tid%22%3a%22bf6d19b6-9266-4686-a93a-50b537dc583a%22%2c%22Oid%22%3a%22c69aee32-f903-4752-a365-202a5d6dce27%22%7d">Click here to join the meeting</a></p>
+    .wp-adminify #wpbody-content .adminify-options.wp-adminify-settings .adminify-header .adminify-header-inner h1 .wp-adminify-settings-logo {
+        max-width: 35px !important;
+    }
 
-<p>Meeting ID: 282 211 458 419 Passcode: HBSKnP</p>
+    /* .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top>a.menu-top:hover {
+    color: var(--adminify-admin-bar-icon) !important;
+}
+  .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top>a.menu-top:hover .wp-adminify-icon-button:before {
+    color: var(--adminify-admin-bar-icon) !important;
+} */
+    .wp-adminify #wpbody-content .adminify-options.wp-adminify-settings .adminify-header .adminify-header-inner .adminify-header-left {
+        width: 50%;
+    }
 
-<p><a href="https://www.microsoft.com/en-us/microsoft-teams/download-app">Download Teams</a> | <a href="https://www.microsoft.com/microsoft-teams/join-a-meeting">Join on the web</a><br />
-<strong>Or call in (audio only)</strong><br />
-<a href="tel:13479415324,,149229952%23%20">+1 347-941-5324,,149229952#</a> United States, New York City Phone Conference ID: 149 229 952#</p>
+    .wp-adminify #wpbody-content .adminify-options.wp-adminify-settings .adminify-header .adminify-header-inner h1 {
+        width: 100%;
+    }
 
-<h2>Agenda</h2>
+    .wp-adminify #wpbody-content .adminify-options.wp-adminify-settings .adminify-header .adminify-header-inner h1 small {
+        line-height: 38px;
+    }
 
-<ol>
-<li>Welcome &amp; Overview/Call to Order</li>
-<li>Approval of Minutes</li>
-<li>Review Lodging Tax Grant Applications</li>
-<li>Grant Recommendations</li>
-<li>Other Business</li>
-<li>Public Comment</li>
-<li>Executive Session (as needed)</li>
-<li>Adjourn</li>
-</ol>
+    /*.color-block-support-panel {display:none !important;}*/
+    .wp-adminify-nav-header {
+        line-height: 20px;
+    }
+
+    .folded .wp-adminify-nav-header {
+        font-size: 10px;
+        line-height: 16px;
+        padding-left: 5px !important;
+    }
+
+    .wp-adminify.adminify-default-v-menu #adminmenu .wp_adminify_admin-menu li.wp-not-current-submenu .wp-submenu a {
+        padding-bottom: 0px !important;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top .wp-submenu li a {
+        line-height: 20px !important;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top>a.menu-top:hover {
+        background-color: var(--adminify-btn-bg);
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify.adminify-default-v-menu #adminmenu .wp_adminify_admin-menu li.wp-not-current-submenu .wp-submenu a:hover {
+        background-color: var(--adminify-btn-bg) !important;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top>a.menu-top.current {
+        background-color: var(--adminify-btn-bg) !important;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify #wpadminbar #wp-admin-bar-root-default .menupop .ab-sub-wrapper ul li>.ab-item {
+        color: #4e4b66 !important
+    }
+
+    .wp-adminify #wpadminbar #wp-admin-bar-root-default li>.ab-item:hover,
+    .wp-adminify #wpadminbar #wp-admin-bar-top-secondary li>.ab-item:hover {
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify #wpadminbar #wp-admin-bar-root-default li>.ab-item:hover .ab-icon,
+    .wp-adminify #wpadminbar #wp-admin-bar-root-default li>.ab-item:hover .ab-icon:before,
+    .wp-adminify #wpadminbar #wp-admin-bar-root-default li>.ab-item:hover .ab-label,
+    .wp-adminify #wpadminbar #wp-admin-bar-top-secondary li>.ab-item:hover .ab-icon,
+    .wp-adminify #wpadminbar #wp-admin-bar-top-secondary li>.ab-item:hover .ab-icon:before,
+    .wp-adminify #wpadminbar #wp-admin-bar-top-secondary li>.ab-item:hover .ab-label {
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top>a.menu-top:hover .wp-adminify-icon-button:before {
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top.wp-adminify-active>a .wp-adminify-icon-button:before {
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify #wpbody-content .wrap .page-title-action:hover {
+        background-color: var(--adminify-text-color) !important;
+        border-color: var(--adminify-btn-bg) !important;
+        color: var(--adminify-btn-bg) !important;
+    }
+
+    #wp-admin-bar-monsterinsights_frontend_button {
+        display: none;
+    }
+
+    #wp-admin-bar-hide-notifications {
+        display: none;
+    }
+
+    #wp-admin-bar-gform-forms {
+        display: none;
+    }
+
+    #wp-admin-bar-wpseo-menu {
+        display: none;
+    }
+
+    .wp-adminify-nav-header {
+        color: var(--adminify-menu-text-color);
+        padding: 20px 0px 0 22px !important;
+        font-weight: bold;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top>a.menu-top {
+        line-height: 1.5em;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top>a.menu-top .wp-adminify-icon-button {
+        margin-top: 0px !important;
+        margin-right: 7px;
+    }
+
+    #wp-admin-bar-clear-cache .ab-item:before {
+        content: "\f100";
+        /*background-image: url(/wp-content/plugins/wp-hide-backed-notices/admin/images/hide-dash-menu.png) !important;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;*/
+        height: 20px;
+        width: 20px;
+        position: relative;
+        top: 5px;
+        font-family: dashicons;
+    }
+
+    #wp-admin-bar-nav-menu .ab-item:before {
+        content: "\f333";
+        /* background-image: url(/wp-content/plugins/wp-hide-backed-notices/admin/images/hide-dash-menu.png) !important;
+    background-size: 20px 20px;
+    background-repeat: no-repeat; */
+        height: 20px;
+        width: 20px;
+        position: relative;
+        top: 5px;
+        font-family: dashicons;
+    }
+
+    .wp-adminify #wpbody-content .subsubsub li a,
+    .wp-adminify #wpbody-content select {
+        border: 1px solid var(--adminify-btn-bg) !important;
+    }
+
+    .wp-adminify #adminmenu .wp_adminify_admin-menu li.menu-top:hover>a.menu-top .wp-adminify-icon-button:before {
+        color: var(--adminify-text-color) !important;
+    }
+
+    .wp-adminify #wpbody-content .interface-interface-skeleton__header .edit-post-header .edit-post-header__settings .interface-pinned-items button.has-icon {
+        color: white;
+    }
+
+    .wp-adminify #wpbody-content select {
+        color: var(--adminify-btn-bg) !important;
+    }
+
+    .wp-adminify #wpbody-content .subsubsub li a:hover {
+        background-color: var(--adminify-btn-bg);
+        color: var(--adminify-text-color);
+    }
+
+    .wp-adminify #wpbody-content .interface-interface-skeleton__body .edit-post-sidebar .edit-post-sidebar__panel-tabs button,
+    .wp-adminify #wpbody-content .interface-interface-skeleton__body .edit-widgets-sidebar .edit-widgets-sidebar__panel-tabs button {
+        line-height: 24px !important;
+    }
+
+    .wrap .menu-description {
+        max-width: 800px;
+    }
+
+    .wp-adminify a.edit-post-fullscreen-mode-close:hover {
+        color: #fff !important;
+    }
+
+    .mi-dw-btn-large {
+        color: #fff !important;
+    }
+</style>
