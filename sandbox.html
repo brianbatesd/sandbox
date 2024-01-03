@@ -1,15 +1,139 @@
-<ul>
-    <li>My short-term rental business is registered with the City of Vancouver;</li>
-    <li>I will comply with all relevant short-term rental provisions listed in the RCW 64.37 and 64.637.030;</li>
-    <li>I attest the short-term rental identified in this certificate shall comply with the required standards in VMC 20.835.040;</li>
-    <li>I will include my City of Vancouver store-term rental permit number in all advertising;</li>
-    <li>All bedrooms will have an operating carbon monoxide alarm installed;</li>
-    <li>Smoke alarms shall be installed, interconnected, maintained and in working order outside of each separate sleeping area, inside each room used for sleeping purposes, and on each story within the dwelling;</li>
-    <li>Portable Fire Extinguisher: PFEs shall be mounted in an accessible and conspicuous location (size, minimum of a 2A; 10B:C);</li>
-    <li>I will provide an interior map which displays exit routes in case of an emergency that will be posted on the interior side of the door of sleeping rooms and main entrance;</li>
-    <li>Gas and/or electrical utilities must have shut off switches labeled;</li>
-    <li>I will maintain clear space around furnace, space heaters, and hot water heater;</li>
-    <li>I have reviewed, in its entirety, the short-term rental program information;</li>
-    <li>I will allow the City to inspect the premises in accordance with VMC 17.08.</li>
-    <li>I understand that failure to comply with applicable regulatory standards may result in the code enforcement process identified in VMC 22.020.020 (1. Correction Notice 2. Notice of Civil Violation and Order 3. Order to Revoke Permit);</li>
-</ul>
+<!--CSS Below -->
+
+#welcomePage {
+    height: 100%;
+    width: 100%;
+ }
+ 
+ #content #searchBox {   
+    display: inline-block;
+    background-color: white;
+    width: 400px;
+    max-width: 100%
+ }
+ 
+ div.welcomeText {
+    color: #999;
+ }
+ 
+ #selectionArea {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    min-height: 400px;
+    background-color: #e9edec;
+    padding: 45px;
+ }
+ 
+ div.card {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    box-sizing: border-box;
+    width: 294px;
+    height: 415px;
+    background-color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    margin: 15px 15px 15px 15px; 
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     border-radius: 4px;   
+    transition: box-shadow 0.3s ease-in-out;
+ }
+ 
+ div.card.notfound {
+    display: none;
+ }
+ 
+ div.card:hover {
+   -webkit-box-shadow: 10px 10px 43px -22px rgba(125,125,125,1);
+   -moz-box-shadow: 10px 10px 43px -22px rgba(125,125,125,1);
+   box-shadow: 10px 10px 43px -22px rgba(125,125,125,1);
+ }
+ 
+ div.card div.icon {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+ }
+ 
+ div.card div.buttonText {
+   text-align: center;
+   width: 100%;
+   font-size: 130%;
+   font-weight: bold;
+   color: #555;
+   margin-top: 30px;
+ }
+ 
+ div.card div.helpText {
+   font-size: 110%;
+   text-align: center;
+   margin-top: 25px;
+   color: #999;
+ }
+ 
+ div.card div.goLinkWrapper {
+   box-sizing: border-box;
+   text-align: center;
+   position: absolute;
+   width: calc(100% - 60px);
+   bottom: 65px;
+ }
+ 
+ div.card a.goLink {
+   display: inline-block;
+   text-transform: uppercase;
+   font-weight: bold;
+   color: #49ABF5; 
+   background-color: white;
+   padding: 10px 15px 10px 15px; 
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;   
+   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+ }
+ 
+ div.card a.goLink:hover {
+   cursor: pointer;
+   text-decoration: none;
+   background-color: #003865; 
+   color: white;
+ }
+ 
+ <!--CSS End-->
+ 
+ <!-- HTML Begin -->
+ 
+ <div id="welcomePage"> {WelcomePageText}
+ 
+    <div id="selectionArea">
+       {SearchBox}
+ 
+       {CollectionLinkItems}
+       <div class="card collectionItem">
+       
+          <div class="icon"><img class="imageIcon" src="{Item.ImageIconURL}"/></div>
+          <div class="buttonText">{Item.ButtonText}</div>
+          <div class="helpText">{Item.HelpText}</div>
+          
+          <div class="goLinkWrapper">
+            <a class="goLink" href="{Item.ActionURL}">Start Here</a>
+          </div>
+          
+          <input type="hidden" value="{Item.SearchMetadata}" name="searchkeys"/>
+          
+       </div>
+       {/CollectionLinkItems}
+       
+    </div>
+ 
+    <div class="footer">{WelcomePageFooterText}</div>
+ </div>
+ 
+ <!-- HTML End -->
