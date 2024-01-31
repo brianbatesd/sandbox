@@ -1,37 +1,30 @@
-<!-- wp:paragraph -->
-<p>The City of Vancouver offers lodging tax grants for projects or events that increase overnight and day-visit tourism within the city. The grants are available to non-profit organizations or government agencies with projects, events or activities that increase visits to the city or help increase tourism-related revenues.</p>
-<!-- /wp:paragraph -->
+<!-- ChatGPT prompt before style edits: Create a form where the user enters a base fee, then enters the total hours worked. Divide the total hours worked by 1664 then round up to the nearest whole number. Add the base fee to the result of the total hours worked calculation and display the result. -->
 
-<!-- wp:list -->
-<ul><!-- wp:list-item -->
-<li>The 2024 grant application deadline was July 28 at 3&nbsp;p.m.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>A Lodging Tax Grant Pre-Application Workshop was held on June 7 at 4 p.m.</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:spacer {"height":"20px"} -->
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:acf/file-download {"name":"acf/file-download","data":{"how_to_display":"Full Width","_how_to_display":"field_5fe39785b68a4","document_0_doc_type":"PDF","_document_0_doc_type":"field_5deec01aa7b3e","document_0_link_label":"Lodging Tax Grants Awarded 2023","_document_0_link_label":"field_5deec3f7a7b42","document_0_media_library_doc_link":18504,"_document_0_media_library_doc_link":"field_5deec2e2a7b3f","document_1_doc_type":"Excel","_document_1_doc_type":"field_5deec01aa7b3e","document_1_link_label":"Budget Form","_document_1_link_label":"field_5deec3f7a7b42","document_1_media_library_doc_link":18503,"_document_1_media_library_doc_link":"field_5deec2e2a7b3f","document_2_doc_type":"PDF","_document_2_doc_type":"field_5deec01aa7b3e","document_2_link_label":"Application Guidelines","_document_2_link_label":"field_5deec3f7a7b42","document_2_media_library_doc_link":18505,"_document_2_media_library_doc_link":"field_5deec2e2a7b3f","document_3_doc_type":"Link","_document_3_doc_type":"field_5deec01aa7b3e","document_3_link_label":"Special Event Permits","_document_3_link_label":"field_5deec3f7a7b42","document_3_page_link":{"title":"Planning and Permitting for Special Events","url":"https://cityofvancouver.us/government/department/parks-recreation-and-cultural-services/planning-and-permitting-for-special-events/","target":""},"_document_3_page_link":"field_5deec325a7b40","document":4,"_document":"field_5deeb98ea7b3d"},"mode":"edit"} /-->
-
-<!-- wp:spacer {"height":"40px"} -->
-<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:embed {"url":"https://www.youtube.com/watch?v=oGez7J4BA5s"} -->
-<figure class="wp-block-embed"><div class="wp-block-embed__wrapper">
-https://www.youtube.com/watch?v=oGez7J4BA5s
-</div></figure>
-<!-- /wp:embed -->
-
-<!-- wp:paragraph -->
-<p>Applications are reviewed by the City’s&nbsp;Lodging Tax Advisory Committee, which then makes funding recommendations to the Vancouver City Council. City Council then awards the grants.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>The grants are funded through a 4 percent lodging tax on hotel, motel and bed and breakfast stays.</p>
-<!-- /wp:paragraph -->
+<div id="calculator" style="margin-left: 1em;">
+    <p><label for="baseFee">Enter the base fee, from fee listing (ex. $62545 = 315.00, $11988.00 = 51.00, $1475.00 = 0.00), of gross income generated within City of Vancouver City Limits from the last 12 months or prior 4 quarters:</label><br>
+    <input type="number" id="baseFee" placeholder="Enter base fee"></p>
+  
+    <p><label for="totalHours">Enter total employee hours worked from the last 12 months or last 4 quarters:</label><br>
+    <input type="number" id="totalHours" placeholder="Enter total hours worked"></p>
+  
+    <p><button style="border: 1px solid #000; border-radius: 3px;" onclick="calculateFee()">Calculate</button></p>
+  
+    <p><strong>Total estimated business license fees:</strong></p>
+    <p id="result"></p>
+  </div>
+  
+  <script>
+    function calculateFee() {
+      var baseFee = parseFloat(document.getElementById('baseFee').value) || 0;
+      var totalHours = parseFloat(document.getElementById('totalHours').value) || 0;
+  
+      // Calculate hourly rate and round up to the nearest whole number
+      var hourlyRate = Math.ceil(totalHours / 1664);
+  
+      // Calculate the total fee
+      var totalFee = baseFee + hourlyRate;
+  
+      // Display the result
+      document.getElementById('result').innerText = 'Total Fee: $' + totalFee.toFixed(2);
+    }
+  </script>
