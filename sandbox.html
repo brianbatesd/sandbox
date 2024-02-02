@@ -1,16 +1,36 @@
-<style type="text/css">
-.tel_em_fax, address, .dp_sidebar h4 { display: none; }
-.dp_sidebar a { text-decoration: underline; color: #003057; }
-.dp_sidebar a:hover { text-decoration: underline dotted; color: #003057; }
-</style>
-<h2>Have Questions?</h2>
-<p>For license application or renewal questions, contact Washington State DOR BLS:</p>
-<ul>
- 	<li><a href="mailto:bls@dor.wa.gov">bls@dor.wa.gov</a></li>
- 	<li><a href="tel:+360-705-6741">360-705-6741</a></li>
-</ul>
-<p>For City license regulations questions, contact Vancouver business licensing:</p>
-<ul>
- 	<li><a href="mailto:business.licenses@cityofvancouver.us">business.licenses@cityofvancouver.us</a></li>
- 	<li><a href="tel:+360-487-8410">360-487-8410</a> option 3</li>
-</ul>
+<form id="feeForm">
+  <p><label for="baseFee">Enter the base fee, from fee listing (ex. $62545 = 315, $11988.00 = 50, $1475.00 = 0), of gross income generated within City of Vancouver City Limits from the last 12 months or prior 4 quarters:</label><br>
+  <input id="baseFee" name="baseFee" required></p>
+
+  <p><label for="totalHours">Enter total employee hours worked from the last 12 months or last 4 quarters:</label><br>
+  <input id="totalHours" name="totalHours" required></p>
+
+  <p><button style="border-radius: 3px; border: 1px solid #000;" type="button" onclick="calculateFee()">Calculate Fee</button></p>
+</form>
+
+<p><strong>Total estimated business license fees:</strong></p>
+<p id="result"></p>
+
+<script>
+  function calculateFee() {
+      // Get values from the form
+      var baseFee = parseFloat(document.getElementById("baseFee").value);
+      var totalHours = parseFloat(document.getElementById("totalHours").value);
+
+      // Check conditions and calculate headcount
+      var baseFeeValue = 0;
+      if (baseFee === 0) {
+          baseFeeValue = 0;
+      } else if (baseFee === 51) {
+          baseFeeValue = 0;
+      } else if (baseFee === 315) {
+          baseFeeValue = 125;
+      }
+
+      var headcount = Math.ceil(totalHours / 1664);
+
+      // Calculate and display the result
+      var result = (baseFeeValue * headcount) + baseFee;
+      document.getElementById("result").innerText = "$" + result.toFixed(2);
+  }
+</script>
