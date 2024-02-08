@@ -1,36 +1,252 @@
-<form id="feeForm">
-  <p><label for="baseFee">Enter the base fee, from fee listing (ex. $62545 = 315, $11988.00 = 50, $1475.00 = 0), of gross income generated within City of Vancouver City Limits from the last 12 months or prior 4 quarters:</label><br>
-  <input id="baseFee" name="baseFee" required></p>
+<style type="text/css">
+	#mnav,
+	.navbar-default {
+		box-shadow: none;
+	}
+	
+	.description {
+		font-size: 18px; 
+		line-height: 1.5em;
+	}
+	
+	.fr-view p {
+		line-height: 1.5em;
+	}
+	
+	.panel-group {
+		margin: 1.5em 0;
+	}
+	
+	.panel-heading {
+		padding: 0; 
+		margin: -15px -15px 0;
+	}
+	
+	.panel {
+		padding: 15px 15px 0 15px;
+	}
+	
+	.panel-body {
+		padding: 10px 0;
+	}
+	
+	.panel-title a::before {
+		content: '- ';
+	}
+	
+	.panel-title a.collapsed::before {
+		content: '+ ';
+	}
+	
+	.panel-title>a {
+		display: block; 
+		padding: 10px 15px; 
+		text-decoration: none !important;
+	}
+	
+	.panel-title strong {
+		text-decoration: underline !important;
+	}
+	
+	.panel-heading:hover {
+		background-color: #ededed;
+	}
+</style>
 
-  <p><label for="totalHours">Enter total employee hours worked from the last 12 months or last 4 quarters:</label><br>
-  <input id="totalHours" name="totalHours" required></p>
+<p>The 29th and 33rd Streets Safety and Mobility Project is studying how to improve safety and mobility for all people using E. 29th Street between Kauffman Avenue and Neals Lane, and E. 33rd Street between Kauffman Avenue and Grand Boulevard. The Project will evaluate how these streets can better meet the needs of people walking, using a mobility device, biking, accessing transit, and driving. This project is coordinating with pavement work planned for 2025 between the I-5 overpasses and St. Johns Boulevard.</p>
 
-  <p><button style="border-radius: 3px; border: 1px solid #000;" type="button" onclick="calculateFee()">Calculate Fee</button></p>
-</form>
+<h2>Get Involved</h2>
 
-<p><strong>Total estimated business license fees:</strong></p>
-<p id="result"></p>
+<p>Sign up for project updates to stay informed about the project and how to get involved. The project team will offer a variety of ways to get involved and provide input, such as:</p>
 
-<script>
-  function calculateFee() {
-      // Get values from the form
-      var baseFee = parseFloat(document.getElementById("baseFee").value);
-      var totalHours = parseFloat(document.getElementById("totalHours").value);
+<ul>
+    <li>Tabling at community events</li>
+    <li>Canvassing within the project area</li>
+    <li>Small group presentations</li>
+</ul>
 
-      // Check conditions and calculate headcount
-      var baseFeeValue = 0;
-      if (baseFee === 0) {
-          baseFeeValue = 0;
-      } else if (baseFee === 51) {
-          baseFeeValue = 0;
-      } else if (baseFee === 315) {
-          baseFeeValue = 125;
-      }
+<p>More details coming soon!</p>
 
-      var headcount = Math.ceil(totalHours / 1664);
+<h2>FAQs</h2>
 
-      // Calculate and display the result
-      var result = (baseFeeValue * headcount) + baseFee;
-      document.getElementById("result").innerText = "$" + result.toFixed(2);
-  }
-</script>
+<div aria-multiselectable="true" class="panel-group" id="accordion1A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading1A">
+			<h3 class="panel-title"><a aria-controls="collapse1A" aria-expanded="false" class="collapsed" data-parent="#accordion1A" data-toggle="collapse" href="#collapse1A">What is the purpose of this project?/a></h3>
+		</div>
+		<div aria-labelledby="heading1A" class="panel-collapse collapse" id="collapse1A">
+			<div class="panel-body">
+				<p>The 29th and 33rd Streets Safety and Mobility Project is studying how to improve safety and mobility for all people using 29th Street between W. Kauffman Avenue and E. Neals Lane, and 33rd Street between W. Kauffman Avenue and E. Grand Boulevard. The project is taking advantage of upcoming paving work scheduled for 2025 and planned improvements to the I-5 overpasses through the <a href="http://www.interstatebridge.org/">Interstate Bridge Replacement Program.</a></p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion2A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading2A">
+			<h3 class="panel-title"><a aria-controls="collapse2A" aria-expanded="false" class="collapsed" data-parent="#accordion2A" data-toggle="collapse" href="#collapse2A">Why are safety and mobility improvements needed on 29th and 33rd Streets?</a></h3>
+		</div>
+		<div aria-labelledby="heading2A" class="panel-collapse collapse" id="collapse2A">
+			<div class="panel-body">
+				<p>The Cty&rsquo;s 2024 <a href="http://www.beheardvancouver.org/tsp">Transportation System Plan</a> identifies these streets as important community connections on the pedestrian and bike and small mobility networks. 29th Street is identified as a Neighborhood Greenway. 33rd Street is identified as a primary pedestrian corridor and calls for mobility lanes (e.g. lanes for bikes, scooters, etc.) from W. Kauffman Avenue and Main Street and protected mobility lanes (lanes with barriers between vehicle and non-vehicel traffic) from Main Street to E. Grand Boulevard.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion3A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading3A">
+			<h3 class="panel-title"><a aria-controls="collapse3A" aria-expanded="false" class="collapsed" data-parent="#accordion3A" data-toggle="collapse" href="#collapse3A">What are complete streets?</a></h3>
+		</div>
+		<div aria-labelledby="heading3A" class="panel-collapse collapse" id="collapse3A">
+			<div class="panel-body">
+				<p>Complete streets allow people to travel safely and comfortably regardless of age, ability, or chosen way to travel. This can look different for every street depending on land use, community needs, and the context of surrounding neighborhoods. Sometimes a complete corridor might use parallel streets to create a more comfortable experience. Your input will help shape what a complete street looks like for 29th and 33rd Streets. The City <a href="https://www.cityofvancouver.us/business/planning-development-and-zoning/transportation-planning/complete-streets/">Complete Streets Policy</a> guides transportation planning and improvements.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion4A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading4A">
+			<h3 class="panel-title"><a aria-controls="collapse4A" aria-expanded="false" class="collapsed" data-parent="#accordion4A" data-toggle="collapse" href="#collapse4A">What are the benefits of complete streets?</a></h3>
+		</div>
+		<div aria-labelledby="heading4A" class="panel-collapse collapse" id="collapse4A">
+			<div class="panel-body">
+				<p>Complete streets can help improve your quality of life. You can access the places and services you need regardless of your abilities or economic status. You feel comfortable and safe navigating your neighborhood. Complete streets reduce crashes and injuries, promote healthy living and encourage sustainable development.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion5A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading5A">
+			<h3 class="panel-title"><a aria-controls="collapse5A" aria-expanded="false" class="collapsed" data-parent="#accordion5A" data-toggle="collapse" href="#collapse5A">How will you determine what improvements are needed along this section of 29th and 33rd Streets?</a></h3>
+		</div>
+		<div aria-labelledby="heading5A" class="panel-collapse collapse" id="collapse5A">
+			<div class="panel-body">
+				<p>This project includes detailed technical analysis and a robust community engagement program. Public feedback supplements the technical analysis and helps shape a range of potential transportation design options. Project staff will evaluate those options and select a preferred design option that will be presented to the City&lsquo;s Transportation and Mobility Commission for recommendation to the City Manager. The project team will offer a variety of ways to get involved and provide input such as surveys, small group briefings, tabling at community events, and neighborhood canvassing.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion6A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading6A">
+			<h3 class="panel-title"><a aria-controls="collapse6A" aria-expanded="false" class="collapsed" data-parent="#accordion6A" data-toggle="collapse" href="#collapse6A">Are you going to reduce the number of traffic lanes?</a></h3>
+		</div>
+		<div aria-labelledby="heading6A" class="panel-collapse collapse" id="collapse6A">
+			<div class="panel-body">
+				<p>29th and 33rd Streets only have one lane in each direction so we will not be reducing the number of traffic lanes.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion7A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading7A">
+			<h3 class="panel-title"><a aria-controls="collapse7A" aria-expanded="false" class="collapsed" data-parent="#accordion7A" data-toggle="collapse" href="#collapse7A">Are you going to remove parking?</a></h3>
+		</div>
+		<div aria-labelledby="heading7A" class="panel-collapse collapse" id="collapse7A">
+			<div class="panel-body">
+				<p>Potentially. Priorities from the Transportation System Plan, analysis of existing and future conditions, and public feedback will help determine what road striping design would be most appropriate for the corridor.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion8A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading8A">
+			<h3 class="panel-title"><a aria-controls="collapse8A" aria-expanded="false" class="collapsed" data-parent="#accordion8A" data-toggle="collapse" href="#collapse8A">Are you going to add bike lanes?</a></h3>
+		</div>
+		<div aria-labelledby="heading8A" class="panel-collapse collapse" id="collapse8A">
+			<div class="panel-body">
+				<p>Potentially. Currently, dedicated bike lanes do not exist on29th Street between Kauffman Avenue and Neals Lane, and 33rd Street between Kauffman Avenue and Grand Boulevard. Bicyclists must share the road with vehicles or use parallel routes. Priorities from the Transportation System Plan, analysis of existing and future conditions, and public feedback will help determine what type of investments would be most appropriate for the corridor.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion9A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading9A">
+			<h3 class="panel-title"><a aria-controls="collapse9A" aria-expanded="false" class="collapsed" data-parent="#accordion9A" data-toggle="collapse" href="#collapse9A">Are you making any improvements to existing sidewalks? Are you adding new sidewalks?</a></h3>
+		</div>
+		<div aria-labelledby="heading9A" class="panel-collapse collapse" id="collapse9A">
+			<div class="panel-body">
+				<p>While the initial paving project will only address in-roadway improvements between the curbs, the project may identify locations for future sidewalk infill and upgrades./p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion10A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading10A">
+			<h3 class="panel-title"><a aria-controls="collapse10A" aria-expanded="false" class="collapsed" data-parent="#accordion10A" data-toggle="collapse" href="#collapse10A">Are you making updates or improvements to side streets?</a></h3>
+		</div>
+		<div aria-labelledby="heading10A" class="panel-collapse collapse" id="collapse10A">
+			<div class="panel-body">
+				<p>Improvements will largely focus on 29th Street between Kauffman Avenue and Neals Lane, and 33rd Street between Kauffman Avenue and Grand Boulevard, but the scope of this project will include intersections along each corridor.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion11A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading11A">
+			<h3 class="panel-title"><a aria-controls="collapse11A" aria-expanded="false" class="collapsed" data-parent="#accordion11A" data-toggle="collapse" href="#collapse11A">How will this project affect my business on 29th Street between Kauffman Avenue and Neals Lane, and 33rd Street between Kauffman Avenue and Grand Boulevard?</a></h3>
+		</div>
+		<div aria-labelledby="heading11A" class="panel-collapse collapse" id="collapse11A">
+			<div class="panel-body">
+				<p>Improving safety and mobility for all modes of transportation benefits everyone, including businesses. Customers and employees can reach you in the way they prefer. Safe, connected pathways for people walking, biking, and using small mobility devices (like scooters) help reduce roadway demand so freight can move efficiently. Complete Streets help create healthy, equitable neighborhoods and attract development opportunities. We will work with individual property and business owners through this process to avoid property and access impacts to the greatest extent possible.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion12A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading12A">
+			<h3 class="panel-title"><a aria-controls="collapse12A" aria-expanded="false" class="collapsed" data-parent="#accordion12A" data-toggle="collapse" href="#collapse12A">When is construction expected to begin? How long will construction last?</a></h3>
+		</div>
+		<div aria-labelledby="heading12A" class="panel-collapse collapse" id="collapse12A">
+			<div class="panel-body">
+				<p>Road pavement and restriping work will start in 2025. Other long-term safety projects and other long-term mobility improvements identified through the project study will be implemented as funding allows.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion13A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading13A">
+			<h3 class="panel-title"><a aria-controls="collapse13A" aria-expanded="false" class="collapsed" data-parent="#accordion13A" data-toggle="collapse" href="#collapse13A">What traffic impacts should we expect?</a></h3>
+		</div>
+		<div aria-labelledby="heading13A" class="panel-collapse collapse" id="collapse13A">
+			<div class="panel-body">
+				<p>Information about traffic impacts will be available after a preferred design is selected and plans are completed in coordination with the pavement management program. The City of Vancouver is committed to keeping impacted community members informed and minimizing traffic impacts as much as possible.</p>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div aria-multiselectable="true" class="panel-group" id="accordion14A">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="heading14A">
+			<h3 class="panel-title"><a aria-controls="collapse14A" aria-expanded="false" class="collapsed" data-parent="#accordion14A" data-toggle="collapse" href="#collapse14A">How is this project being funded?</a></h3>
+		</div>
+		<div aria-labelledby="heading14A" class="panel-collapse collapse" id="collapse14A">
+			<div class="panel-body">
+				<p>Pavement improvements and road striping will be funded through local dollars. Other mobility elements (i.e., crosswalks, median islands, etc.) may be funded through a mix of local, state, and federal funds.</p>
+			</div>
+        </div>
+    </div>
+</div>
