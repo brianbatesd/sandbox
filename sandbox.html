@@ -1,108 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Water Usage Calculator</title>
-    <style>
-        /* Scoped styles for the calculator */
-        .calculator-container {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .calculator-container label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .calculator-container input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .calculator-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #003865;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .calculator-container button:hover {
-            text-decoration: underline;
-            background-color: #000;
-        }
-        .calculator-container .result-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .calculator-container .result-table th,
-        .calculator-container .result-table td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        .calculator-container .result-table th {
-            background-color: #d2d2d2;
-            color: #003865;
-            text-transform: uppercase;
-        }
-        .calculator-container .total-row th,
-        .calculator-container .total-row td {
-            font-weight: bold;
-        }
-        /* Ensure the calculator styles don't affect other elements */
-        .calculator-container * {
-            box-sizing: border-box;
-        }
-    </style>
-</head>
-<body>
+<style type="text/css">
+.city-county {
+    margin-bottom: 1em;
+}
 
-<div class="calculator-container">
-    <h2>Water Charges Only</h2>
-    <p>Rates Effective January 1, 2025</p>
-    <label for="units">Enter Usage (Units)</label>
-    <input type="number" id="units" placeholder="Usage" required>
-    <button onclick="calculate()">Calculate</button>
+.ccf-used {
+    margin-bottom: 1em;
+}
 
-    <div id="result">
-        <!-- Calculation results will appear here -->
-    </div>
-</div>
+.button-calculate {
+    margin-bottom: 1em;
+}
+
+.result-table {
+  margin-top: 3em;
+}
+
+.result-table td {
+    padding: 1em 1em 1em 0;
+}
+</style>
 
 <script>
     function calculate() {
+        const calculatorType = document.getElementById("calculatorType").value;
         const unitsUsed = parseFloat(document.getElementById("units").value);
 
-        // Constants from the spreadsheet
-        const tier1Limit = 11;
-        const tier2Limit = 11;
-        const tier1Rate = 2.80;
-        const tier2Rate = 3.25;
-        const tier3Rate = 4.75;
-        const meterSize = "5/8\"";
-        const meterServiceCharge = 22.02;
+        // Constants for City and County rates
+        const rates = {
+            city: {
+                tier1Limit: 11,
+                tier2Limit: 11,
+                tier1Rate: 2.80,
+                tier2Rate: 3.25,
+                tier3Rate: 4.75,
+                meterServiceCharge: 22.02,
+                meterSize: "5/8\""
+            },
+            county: {
+                tier1Limit: 11,
+                tier2Limit: 11,
+                tier1Rate: 4.06,
+                tier2Rate: 4.71,
+                tier3Rate: 6.88,
+                meterServiceCharge: 33.38,
+                meterSize: "5/8\""
+            }
+        };
+
+        // Select the appropriate rates
+        const selectedRates = rates[calculatorType];
 
         // Calculations based on units used
-        let tier1Units = Math.min(unitsUsed, tier1Limit);
-        let tier2Units = Math.min(Math.max(unitsUsed - tier1Limit, 0), tier2Limit);
-        let tier3Units = Math.max(unitsUsed - tier1Limit - tier2Limit, 0);
+        let tier1Units = Math.min(unitsUsed, selectedRates.tier1Limit);
+        let tier2Units = Math.min(Math.max(unitsUsed - selectedRates.tier1Limit, 0), selectedRates.tier2Limit);
+        let tier3Units = Math.max(unitsUsed - selectedRates.tier1Limit - selectedRates.tier2Limit, 0);
 
-        let tier1Charge = tier1Units * tier1Rate;
-        let tier2Charge = tier2Units * tier2Rate;
-        let tier3Charge = tier3Units * tier3Rate;
+        let tier1Charge = tier1Units * selectedRates.tier1Rate;
+        let tier2Charge = tier2Units * selectedRates.tier2Rate;
+        let tier3Charge = tier3Units * selectedRates.tier3Rate;
 
         let totalUsageCharge = tier1Charge + tier2Charge + tier3Charge;
-        let totalWaterCharge = totalUsageCharge + meterServiceCharge;
+        let totalWaterCharge = totalUsageCharge + selectedRates.meterServiceCharge;
 
         // Generate the result table
         const resultHTML = `
@@ -112,11 +70,11 @@
                 </tr>
                 <tr>
                     <td colspan="2">Meter Size</td>
-                    <td>${meterSize}</td>
+                    <td>${selectedRates.meterSize}</td>
                 </tr>
                 <tr class="total-row">
                     <td colspan="2">Meter Service Charge</td>
-                    <td>$${meterServiceCharge.toFixed(2)}</td>
+                    <td>$${selectedRates.meterServiceCharge.toFixed(2)}</td>
                 </tr>
                 <tr aria-hidden="true">
                     <td colspan="3">&nbsp;</td>
@@ -125,18 +83,18 @@
                     <th class="title" colspan="3">Consumption Charges</th>
                 </tr>
                 <tr>
-                    <td>Tier 1 (0-11 units)</td>
-                    <td>${tier1Units} x $${tier1Rate.toFixed(2)}</td>
+                    <td>Tier 1 (0-${selectedRates.tier1Limit} CCF)</td>
+                    <td>${tier1Units} x $${selectedRates.tier1Rate.toFixed(2)}</td>
                     <td>$${tier1Charge.toFixed(2)}</td>
                 </tr>
                 <tr>
-                    <td>Tier 2 (12-22 units)</td>
-                    <td>${tier2Units} x $${tier2Rate.toFixed(2)}</td>
+                    <td>Tier 2 (${selectedRates.tier1Limit + 1}-${selectedRates.tier1Limit + selectedRates.tier2Limit} CCF)</td>
+                    <td>${tier2Units} x $${selectedRates.tier2Rate.toFixed(2)}</td>
                     <td>$${tier2Charge.toFixed(2)}</td>
                 </tr>
                 <tr>
-                    <td>Tier 3 (>23 units)</td>
-                    <td>${tier3Units} x $${tier3Rate.toFixed(2)}
+                    <td>Tier 3 (>${selectedRates.tier1Limit + selectedRates.tier2Limit} CCF)</td>
+                    <td>${tier3Units} x $${selectedRates.tier3Rate.toFixed(2)}</td>
                     <td>$${tier3Charge.toFixed(2)}</td>
                 </tr>
                 <tr class="total-row">
@@ -158,5 +116,19 @@
     }
 </script>
 
-</body>
-</html>
+<!-- HTML Layout -->
+<div class="city-county">
+    <label for="calculatorType">Select City or County:</label>
+    <select id="calculatorType">
+        <option value="city">City</option>
+        <option value="county">County</option>
+    </select>
+</div>
+<div class="ccf-used">
+    <label for="units">CCF used:</label>
+    <input type="number" id="units" placeholder="Enter CCF used">
+</div>
+<div class="button-calculate">
+    <button onclick="calculate()">Calculate</button>
+</div>
+<div id="result"></div>
