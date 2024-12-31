@@ -3,6 +3,11 @@
     margin-bottom: 1em;
 }
 
+select#calculatorType, input#units {
+    min-height: 50px;
+    padding: 0 10px 0 10px;
+}
+
 .ccf-used {
     margin-bottom: 1em;
 }
@@ -12,11 +17,20 @@
 }
 
 .result-table {
-  margin-top: 3em;
+    margin-top: 3em;
+}
+
+.result-table th {
+    background-color: #2d3036;
+    color: #fff;
+}
+
+.result-table td, .result-table th {
+    padding: .75em 2em .75em 1em;
 }
 
 .result-table td {
-    padding: 1em 1em 1em 0;
+    border-bottom: 1px solid #e5e4e2;
 }
 </style>
 
@@ -105,8 +119,8 @@
                     <td colspan="3">&nbsp;</td>
                 </tr>                
                 <tr class="total-row">
-                    <td colspan="2">Total Water Charge</td>
-                    <td>$${totalWaterCharge.toFixed(2)}</td>
+                    <td colspan="2"><strong>Total Water Charge</strong></td>
+                    <td><strong>$${totalWaterCharge.toFixed(2)}</strong></td>
                 </tr>
             </table>
         `;
@@ -129,6 +143,6 @@
     <input type="number" id="units" placeholder="Enter CCF used">
 </div>
 <div class="button-calculate">
-    <button onclick="calculate()">Calculate</button>
+    <button class="btn_lg" onclick="calculate()">Calculate</button>
 </div>
 <div id="result"></div>
