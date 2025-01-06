@@ -1,4 +1,11 @@
 <style type="text/css">
+.calculator-wrapper {
+    border: 1px solid #e5e4e2;
+    border-radius: 5px;
+    padding: 1em 1.5em 0 1em;
+    text-align: center;
+}
+
 .city-county {
     margin-bottom: 1em;
 }
@@ -6,6 +13,8 @@
 select#calculatorType, input#units {
     min-height: 50px;
     padding: 0 10px 0 10px;
+    margin-left: .25em;
+    border: 1px solid #7c7e81;
 }
 
 .ccf-used {
@@ -17,7 +26,7 @@ select#calculatorType, input#units {
 }
 
 .result-table {
-    margin-top: 3em;
+    margin: 3em auto 3em auto;
 }
 
 .result-table th {
@@ -27,6 +36,7 @@ select#calculatorType, input#units {
 
 .result-table td, .result-table th {
     padding: .75em 2em .75em 1em;
+    text-align: left;
 }
 
 .result-table td {
@@ -131,6 +141,7 @@ select#calculatorType, input#units {
 </script>
 
 <!-- HTML Layout -->
+<div class="calculator-wrapper">
 <div class="city-county">
     <label for="calculatorType">Select City or County:</label>
     <select id="calculatorType">
@@ -146,3 +157,4 @@ select#calculatorType, input#units {
     <button class="btn_lg" onclick="calculate()">Calculate</button>
 </div>
 <div id="result"></div>
+</div>
